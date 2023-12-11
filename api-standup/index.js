@@ -5,6 +5,7 @@ import { checkFile } from "./modules/checkFile.js";
 import { handleComediansRequest } from "./modules/handleComediansRequest.js";
 import { handleAddClient } from "./modules/handleAddClient.js";
 import { handleClientsRequest } from "./modules/handleClientsRequest.js";
+import { handleUpdateClient } from "./modules/handleUpdateClient.js";
 
 const PORT = 8080;
 const COMEDIANS = './comedians.json';
