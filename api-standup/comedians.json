@@ -1,183 +1,183 @@
 [
   {
     "id": "1",
-    "comedian": "РУСЛАН БЕЛЫЙ",
+    "comedian": "RUSLAN BELIY",
     "performances": [
       {
         "time": "12:00",
-        "hall": "Зал 1"
+        "hall": "Hall 1"
       },
       {
         "time": "23:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       }
     ]
   },
   {
     "id": "2",
-    "comedian": "ЮЛЯ АХМЕДОВА",
+    "comedian": "JULIA AHMEDOVA",
     "performances": [
       {
         "time": "13:00",
-        "hall": "Зал 1"
+        "hall": "Hall 1"
       }
     ]
   },
   {
     "id": "3",
-    "comedian": "ТИМУР КАРГИНОВ",
+    "comedian": "TIMUR KARGINOV",
     "performances": [
       {
         "time": "14:00",
-        "hall": "Зал 1"
+        "hall": "Hall 1"
       }
     ]
   },
   {
     "id": "4",
-    "comedian": "СЛАВА КОМИССАРЕНКО",
+    "comedian": "SLAVA KOMISSARENKO",
     "performances": [
       {
         "time": "15:00",
-        "hall": "Зал 1"
+        "hall": "Hall 1"
       }
     ]
   },
   {
     "id": "5",
-    "comedian": "АЛЕКСЕЙ ЩЕРБАКОВ",
+    "comedian": "ALEXEY SCHERBAKOV",
     "performances": [
       {
         "time": "16:00",
-        "hall": "Зал 1"
+        "hall": "Hall 1"
       },
       {
         "time": "21:00",
-        "hall": "Зал 1"
+        "hall": "Hall 1"
       }
     ]
   },
   {
     "id": "6",
-    "comedian": "ВИКТОР КОМАРОВ",
+    "comedian": "VICTOR KOMAROV",
     "performances": [
       {
         "time": "17:00",
-        "hall": "Зал 1"
+        "hall": "Hall 1"
       },
       {
         "time": "22:00",
-        "hall": "Зал 1"
+        "hall": "Hall 1"
       }
     ]
   },
   {
     "id": "7",
-    "comedian": "ДМИТРИЙ РОМАНОВ",
+    "comedian": "DMITRIY ROMANOV",
     "performances": [
       {
         "time": "18:00",
-        "hall": "Зал 1"
+        "hall": "Hall 1"
       },
       {
         "time": "23:00",
-        "hall": "Зал 1"
+        "hall": "Hall 1"
       }
     ]
   },
   {
     "id": "8",
-    "comedian": "ЕЛЕНА НОВИКОВА",
+    "comedian": "ELENA NOVIKOVA",
     "performances": [
       {
         "time": "19:00",
-        "hall": "Зал 1"
+        "hall": "Hall 1"
       }
     ]
   },
   {
     "id": "9",
-    "comedian": "ВАНЯ УСОВИЧ",
+    "comedian": "VANYA USOVICH",
     "performances": [
       {
         "time": "12:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       }
     ]
   },
   {
     "id": "10",
-    "comedian": "ИЛЬЯ СОБОЛЕВ",
+    "comedian": "ILYA SOBOLEV",
     "performances": [
       {
         "time": "13:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       }
     ]
   },
   {
     "id": "11",
-    "comedian": "ИРА ПРИХОДЬКО",
+    "comedian": "IRA PRIHODKO",
     "performances": [
       {
         "time": "14:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       }
     ]
   },
   {
     "id": "12",
-    "comedian": "ЕВГЕНИЙ ЧЕБАТКОВ",
+    "comedian": "EVGENIY CHEBATKOV",
     "performances": [
       {
         "time": "15:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       },
       {
         "time": "19:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       }
     ]
   },
   {
     "id": "13",
-    "comedian": "ВИКТОРИЯ СКЛАДЧИКОВА",
+    "comedian": "VICTORIA SKLADCHIKOVA",
     "performances": [
       {
         "time": "16:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       },
       {
         "time": "20:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       }
     ]
   },
   {
     "id": "14",
-    "comedian": "ПАВЕЛ ДЕДИЩЕВ",
+    "comedian": "PAVEL DEDISCHEV",
     "performances": [
       {
         "time": "17:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       },
       {
         "time": "21:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       }
     ]
   },
   {
     "id": "15",
-    "comedian": "АНДРЕЙ АТЛАС",
+    "comedian": "ANDREY ATLAS",
     "performances": [
       {
         "time": "18:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       },
       {
         "time": "22:00",
-        "hall": "Зал 2"
+        "hall": "Hall 2"
       }
     ]
   }
