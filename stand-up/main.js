@@ -1,9 +1,16 @@
+import { Notification } from './scripts/notification';
 import './style.css'
 import TomSelect from 'tom-select';
 
 const MAX_COMEDIANS = 6;
 
+const notification = Notification.getInstance();
+setTimeout(() => {
+    notification.show('hi', true);
+}, 3000)
+
 const bookingComediansList = document.querySelector('.booking__comedians-list');
+const bookingForm = document.querySelector('.booking__form');
 
 const createComedianBlock = (comedians) => {
     const bookingComedian = document.createElement('li');
@@ -105,7 +112,32 @@ const init = async () => {
     const comedianBlock = createComedianBlock(comedians);
 
     bookingComediansList.append(comedianBlock);
-}
+
+    bookingForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = {booking: []};
+        const times = new Set();
+
+        new FormData(bookingForm).forEach((value, field) => {
+            if(field === 'booking') {
+                const [comedian, time] = value.split(',');
+
+                if(comedian && time) {
+                    data.booking.push({comedian, time});
+                    times.add(time);
+                } 
+
+            } else {
+                    data[field] = value;
+                }
+            
+            if(times.size !== data.booking.length) {
+                console.log("you can't attend two preformances at once");
+                // notificaTIOn "you can't be at the two preformances at once"
+            }
+        });
+    });
+};
 
 init();
 
