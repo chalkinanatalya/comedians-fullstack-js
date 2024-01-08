@@ -7,7 +7,7 @@
     font-weight: 800;
     line-height: 1.2;
     border-radius: 16px;
-    background: #998f00;
+    background: #2ab109;
     padding: 32px;
     z-index: 1000;
     opacity: 0;
@@ -18,3 +18,13 @@
     opacity: 1;
     transform: translateX(0);
 }
+
+.notification_success {
+    padding-right: 76px;
+    background: #00992B url('../img/iconamoon_check-bold.svg') right 32px center / 36px no-repeat;
+}
+
+.notification_error {
+    background-color: #900;
+}
+
