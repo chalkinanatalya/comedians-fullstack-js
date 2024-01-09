@@ -1,13 +1,13 @@
 import { Notification } from './scripts/notification';
 import './style.css'
 import TomSelect from 'tom-select';
+import Inputmask from 'inputmask';
+import JustValidate from 'just-validate';
 
 const MAX_COMEDIANS = 6;
 
 const notification = Notification.getInstance();
-setTimeout(() => {
-    notification.show('hi', true);
-}, 3000)
+
 
 const bookingComediansList = document.querySelector('.booking__comedians-list');
 const bookingForm = document.querySelector('.booking__form');
@@ -113,6 +113,63 @@ const init = async () => {
 
     bookingComediansList.append(comedianBlock);
 
+    const validate = new JustValidate(bookingForm, {
+        errorFieldCssClass: 'booking__input_invalid',
+        successFieldCssClass:'booking__input_valid',
+    });
+
+    const bookingInputFullName = document.querySelector('.booking__input_fullname');
+    const bookingInputPhone = document.querySelector('.booking__input_phone');
+    const bookingInputTicket = document.querySelector('.booking__input_ticket');
+
+    new Inputmask('99999999').mask(bookingInputTicket);
+    new Inputmask('+1(999)-999-9999').mask(bookingInputPhone);
+    
+
+    validate
+    .addField(bookingInputFullName, [{
+        rule: 'required',
+        errorMessage: 'Fill name section'
+    }])
+    .addField(bookingInputPhone, [{
+        rule: 'required',
+        errorMessage: 'Fill phone section'
+    },     
+    {
+        validator() {
+            const phone = bookingInputPhone.inputmask.unmaskedvalue();
+            return phone.length === 10 && !!Number(phone)
+        },
+        errorMessage: 'Incorrect phone number'
+    }
+])
+    .addField(bookingInputTicket, [{
+        rule: 'required',
+        errorMessage: 'Input ticket number'
+    }, 
+    {
+        validator() {
+            const ticket = bookingInputTicket.inputmask.unmaskedvalue()
+            return ticket.length === 8 && !!Number(ticket);
+        },
+        errorMessage: 'Wrong ticket number'
+    }
+]).onFail((fields) => {
+    let errorMessage = '';
+    for (const key in fields) {
+        if (!Object.hasOwnProperty.call(fields, key)) {
+            continue;
+        }
+
+        const element = fields[key];
+        if(!element.isValid) {
+            errorMessage += `${element.errorMessage}, `
+        }
+    }
+
+    notification.show(errorMessage.slice(0, -2), false)
+});
+
     bookingForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const data = {booking: []};
@@ -132,8 +189,7 @@ const init = async () => {
                 }
             
             if(times.size !== data.booking.length) {
-                console.log("you can't attend two preformances at once");
-                // notificaTIOn "you can't be at the two preformances at once"
+                notification.show(`you can't attend two preformances at once`, false)
             }
         });
     });

@@ -20,7 +20,7 @@ export class Notification {
     show(message, isSuccess) {
         const notification = this.createNotification(message, isSuccess);
         document.body.append(notification);
-        this.createNotification(notification, true);
+        this.animationNotification(notification, true);
 
         setTimeout(() => {
             this.animationNotification(notification, false).then(() => {
