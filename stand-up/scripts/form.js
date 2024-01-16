@@ -1,8 +1,9 @@
 import Inputmask from 'inputmask';
 import JustValidate from 'just-validate';
 import { Notification } from './notification.js';
+import { sendData } from './api.js';
 
-export const initForm = (bookingForm, bookingInputFullName, bookingInputPhone, bookingInputTicket) => {
+export const initForm = (bookingForm, bookingInputFullName, bookingInputPhone, bookingInputTicket, changeSection, bookingComediansList) => {
     const validate = new JustValidate(bookingForm, {
         errorFieldCssClass: 'booking__input_invalid',
         successFieldCssClass:'booking__input_valid',
@@ -55,8 +56,11 @@ export const initForm = (bookingForm, bookingInputFullName, bookingInputPhone, b
     Notification.getInstance().show(errorMessage.slice(0, -2), false)
 });
 
-    bookingForm.addEventListener('submit', (e) => {
+    bookingForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+        if(!validate.isValid) {
+            return;
+        }
         const data = {booking: []};
         const times = new Set();
 
@@ -73,9 +77,33 @@ export const initForm = (bookingForm, bookingInputFullName, bookingInputPhone, b
                     data[field] = value;
                 }
             
-            if(times.size !== data.booking.length) {
-                Notification.getInstance().show(`you can't attend two preformances at once`, false)
-            }
         });
+
+        if(times.size !== data.booking.length) {
+            Notification.getInstance().show(`you can't attend two preformances at once`, false)
+        }
+
+        if(!times.size) {
+            Notification.getInstance().show(`You haven't chosen comedian and/or time`);
+        }
+
+        const method = bookingForm.getAttribute('method');
+
+        let isSend = false;
+        if(method === 'PATCH') {
+            isSend = await sendData(method, data, data.ticketNumber);
+        } else {
+            isSend = await sendData(method, data);
+        }
+
+        if(isSend) {
+            Notification.getInstance().show('Booking is approved', true);
+            changeSection();
+            bookingForm.reset();
+            bookingComediansList.textContent = '';
+
+        }
+
+        console.log(data);
     });
 }

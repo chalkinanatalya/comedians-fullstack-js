@@ -1,4 +1,6 @@
-export const initChangeSection = (bookingForm, event, booking, eventButtionReserve, eventButtonEdit, bookingTitle) => {
+import { createComedianBlock } from "./comedians.js";
+
+export const initChangeSection = (bookingForm, event, booking, eventButtionReserve, eventButtonEdit, bookingTitle, comedians, bookingComediansList) => {
     eventButtonEdit.style.transition =  'opacity 0.5s, visibility 0.5s';
     eventButtionReserve.style.transition =  'opacity 0.5s, visibility 0.5s';
     
@@ -6,8 +8,13 @@ export const initChangeSection = (bookingForm, event, booking, eventButtionReser
     eventButtonEdit.classList.remove('event__button_hidden');
 
     const changeSection = () => {
-        event.classList.add('event__hidden');
-        booking.classList.remove('booking__hidden');
+        event.classList.toggle('event__hidden');
+        booking.classList.toggle('booking__hidden');
+        if(!booking.classList.contains('booking__hidden')) {
+            const comedianBlock = createComedianBlock(comedians, bookingComediansList);
+            bookingComediansList.append(comedianBlock);
+        }
+
     }
 
     eventButtionReserve.addEventListener('click', () => {
@@ -20,8 +27,11 @@ export const initChangeSection = (bookingForm, event, booking, eventButtionReser
         changeSection();
         bookingTitle.textContent = 'Edit booking'
         bookingForm.method = 'PATCH';
-    })
+    });
+
+    return changeSection;
 
 }
+
 
 
