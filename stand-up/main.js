@@ -20,17 +20,17 @@ const init = async () => {
 
     const comedians = await getComedians();
 
-    initForm(bookingForm, bookingInputFullName, bookingInputPhone, bookingInputTicket)
     if(comedians) {
         countComedians.textContent = comedians.length;
-        const comedianBlock = createComedianBlock(comedians, bookingComediansList);
-        bookingComediansList.append(comedianBlock);
 
-        initChangeSection(bookingForm, event, booking, eventButtionReserve, eventButtonEdit, bookingTitle);
+        const changeSection = initChangeSection(bookingForm, event, booking, eventButtionReserve, eventButtonEdit, bookingTitle, comedians, bookingComediansList);
+        initForm(bookingForm, bookingInputFullName, bookingInputPhone, bookingInputTicket, changeSection, bookingComediansList);
     }
 };
 
 init();
+
+
 
 
 
