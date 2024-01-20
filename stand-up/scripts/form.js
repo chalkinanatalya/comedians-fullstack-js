@@ -80,11 +80,13 @@ export const initForm = (bookingForm, bookingInputFullName, bookingInputPhone, b
         });
 
         if(times.size !== data.booking.length) {
-            Notification.getInstance().show(`you can't attend two preformances at once`, false)
+            Notification.getInstance().show(`you can't attend two preformances at once`, false);
+            return;
         }
 
         if(!times.size) {
             Notification.getInstance().show(`You haven't chosen comedian and/or time`);
+            return;
         }
 
         const method = bookingForm.getAttribute('method');
