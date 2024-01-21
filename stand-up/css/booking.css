@@ -131,6 +131,14 @@
     background: url('../img/gg_qr.svg') right/24px no-repeat;
 }
 
+.booking__client-info {
+    display: grid;
+}
+
+.booking__title-qr {
+
+}
+
 @media (max-width: 1024px) {
     .booking__container {
         padding: 0 60px;
