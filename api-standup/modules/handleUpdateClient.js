@@ -43,6 +43,7 @@ export const handleUpdateClient = (req, res, segments) => {
 
             if(clientIndex === -1) {
                 sendError(res, 404, 'Client with this ticket number is not found')
+                return;
             }
 
             clients[clientIndex] = {

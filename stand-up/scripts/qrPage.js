@@ -1,0 +1,27 @@
+import { getClient, getComedians } from "./api.js";
+import { displayBooking, displayClientInfo } from "./display.js";
+import { Notification } from "./notification.js";
+
+const getTicketNumber = () => {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    return urlParams.get('t')
+}
+
+export const initQrPage = async () => {
+    const clientInfo = document.querySelector('.booking__client-info');
+    const perfomance = document.querySelector('.booking__perfomance');
+
+    const ticketNumber = getTicketNumber();
+    console.log('ticketNumber: ', ticketNumber);
+    
+    if(ticketNumber) {
+        const clientData = await getClient(ticketNumber);
+        displayClientInfo(clientInfo, clientData);
+        const comediansData = await getComedians(ticketNumber);
+        displayBooking(perfomance, clientData, comediansData);
+        
+    } else {
+        Notification.getInstance().show('Some error has occured, check your link');
+    }
+}
