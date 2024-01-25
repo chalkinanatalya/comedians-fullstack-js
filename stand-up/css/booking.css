@@ -133,10 +133,25 @@
 
 .booking__client-info {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.booking__client-item {
+    margin: 0;
 }
 
 .booking__title-qr {
+    font-size: 34px;
+    margin-bottom: 20px;
+    grid-column: 1/ -1;
+}
 
+.booking__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
 @media (max-width: 1024px) {
