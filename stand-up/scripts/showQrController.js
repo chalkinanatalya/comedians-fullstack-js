@@ -24,7 +24,7 @@ const displayQRCode = (data) => {
     modal.classList.add('modal_show');
 
     window.addEventListener('click', ({target}) => {
-        if(target === closeButton && target === modal) {
+        if(target === closeButton || target === modal) {
             modal.classList.remove('modal_show');
             canvas.getContext('2d').clearRect(0,0, canvas.width, canvas.height);
         }
